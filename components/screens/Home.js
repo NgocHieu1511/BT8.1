@@ -1,10 +1,41 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { createStaticNavigation } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 export default function Home() {
   return (
-    <View>
-      <Text>Home Screen</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Home Screen</Text>
+      <Text style={styles.subtitle}>Welcome to the app</Text>
     </View>
   );
 }
+
+const RootStack = createNativeStackNavigator({
+  screens: {
+    Home: Home,
+  },
+});
+
+const Navigation = createStaticNavigation(RootStack);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f5f5f5",
+  },
+
+  title: {
+    fontSize: 30,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+
+  subtitle: {
+    fontSize: 16,
+    color: "#666",
+  },
+});
