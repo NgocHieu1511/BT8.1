@@ -3,15 +3,15 @@ import { View, Text, Button, StyleSheet } from "react-native";
 import { AppContext } from "../context/AppContext";
 
 export default function Profile() {
-  const { setIsLoggedIn } = useContext(AppContext);
+  const { setIsLoggedIn, email, password } = useContext(AppContext);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Profile Screen</Text>
 
       <View style={styles.card}>
-        <Text style={styles.info}>User: Hiếu Nguyễn</Text>
-        <Text style={styles.info}>Email: admin@gmail.com</Text>
+        <Text style={styles.info}>Email:{email}</Text>
+        <Text style={styles.info}>Mật khẩu:{password}</Text>
       </View>
 
       <View style={styles.button}>
